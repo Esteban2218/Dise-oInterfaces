@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { db } from '../config/firebase';  
+import { collection, addDoc } from 'firebase/firestore';
 import { BsBag, BsShop } from "react-icons/bs";
 import "../assets/css/Products.css"
 import p1 from '../assets/p1.png';
@@ -14,6 +16,26 @@ import { FaShoppingCart } from "react-icons/fa";
 
 const Products = () => {
     const [cart, setCart] = useState([]);
+    const [purchaseStatus, setPurchaseStatus] = useState('');
+    const handlePurchase = async () => {
+        if (cart.length === 0) {
+            alert("Tu carrito está vacío. Agrega productos antes de registrar la compra.");
+            return;
+        }
+        try {
+            const docRef = await addDoc(collection(db, "compras"), {
+                productos: cart,
+                totalItems: cart.reduce((total, item) => total + item.quantity, 0),
+                totalPrice: cart.reduce((total, item) => total + (item.price * item.quantity), 0).toFixed(2),
+                timestamp: new Date()
+            });
+            setPurchaseStatus('Compra registrada exitosamente!');
+            setCart([]); 
+        } catch (e) {
+            setPurchaseStatus('Error al registrar la compra.');
+            console.error("Error al agregar el documento: ", e);
+        }
+    };
 
     const addToCart = (product) => {
         setCart((prevCart) => {
@@ -249,6 +271,7 @@ const Products = () => {
                             </li>
                         </ul>
                     )}
+                    <button className='btn' onClick={handlePurchase}>Comprar</button> {purchaseStatus && <p>{purchaseStatus}</p>}
                 </div>
 
                 <div className="view-more-button-container">
@@ -256,7 +279,7 @@ const Products = () => {
                 </div>
             </section>
         </main>
+        
     );
 };
-
 export default Products;
