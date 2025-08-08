@@ -5,7 +5,7 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { CgClose } from "react-icons/cg";
 import "../../assets/css/Header.css";
 import { useAuth } from "../../context/AuthProvider";
-import { FaHeart, FaShoppingCart } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa";
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -40,7 +40,11 @@ const Header = () => {
                 <div className={`navbar__barra ${isOpen ? "open" : ""}`}>
                     <div className="navegacion">
                         <Link to="/about" className="navegacion__link" onClick={closeMenu}>Nosotros</Link>
-                        <Link to="/products" className="navegacion__link" onClick={closeMenu}>Productos</Link>
+
+                        {user && (
+                            <Link to="/products" className="navegacion__link" onClick={closeMenu}>Productos</Link>
+                        )}
+
                         <Link to="/contact" className="navegacion__link" onClick={closeMenu}>Contactos</Link>
                     </div>
 
@@ -66,7 +70,7 @@ const Header = () => {
                         {user ? (
                             <>
                                 <span className="user-email">{user.email}</span>
-                                <span className="user-email"><FaHeart className="cart"/></span>
+                                <span className="user-email"><FaHeart className="cart" /></span>
                                 <button className="button" onClick={handleLogout}>Cerrar sesión</button>
                             </>
                         ) : (
