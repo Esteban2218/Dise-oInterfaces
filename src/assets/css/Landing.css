@@ -1,0 +1,131 @@
+.hero {
+    background-image: url("https://res.cloudinary.com/df36gkrw5/image/upload/v1749181486/inicio_ar3qxc.jpg");
+    background-size: cover;
+    /* La imagen cubrirá toda el área */
+    background-position: center;
+    /* Centrar la imagen */
+    background-repeat: no-repeat;
+    /* No repetir la imagen */
+    height: 60vh;
+    /* Alto de la sección (100% de la altura de la ventana) */
+    display: flex;
+    /* Centra el contenido verticalmente */
+    justify-content: start;
+    /* Centra el contenido horizontalmente */
+    color: white;
+    /* Color de texto (ajustable según contraste) */
+    padding: 2rem;
+    border-radius: 30px;
+    font-family: Arial, sans-serif;
+
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.hero-title {
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hero-description {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* === Estilos responsivos === */
+@media (max-width: 1024px) {
+    .hero {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .hero-title {
+        font-size: 40px;
+    }
+
+    .hero-description {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .hero-title {
+        font-size: 32px;
+        text-align: left;
+    }
+
+    .hero-description {
+        font-size: 16px;
+        text-align: left;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .hero-title {
+        font-size: 26px;
+        text-align: left;
+    }
+
+    .hero-description {
+        font-size: 14px;
+        text-align: left;
+    }
+}
+
+
+/* ===  === */
+/* === Estilo para pantallas grandes (escritorio) === */
+.productShowcase {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+    flex-wrap: wrap;
+    /* Esto permite que pasen a la siguiente fila si no caben */
+}
+
+.productItem {
+    width: 347px;
+    height: 419px;
+    border-radius: 10px;
+}
+
+.productItem1 {
+    width: 178px;
+    height: 249px;
+    border-radius: 10px;
+    align-self: center;
+}
+
+/* === Estilos responsivos para pantallas pequeñas (móviles) === */
+@media (max-width: 768px) {
+    .productShowcase {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 columnas */
+        gap: 10px;
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .productItem,
+    .productItem1 {
+        width: 100%;
+        height: auto;
+    }
+}

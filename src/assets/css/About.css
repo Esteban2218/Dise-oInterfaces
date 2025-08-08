@@ -1,0 +1,181 @@
+.about-us-images {
+    position: relative;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.about-us-images img {
+    border-radius: 20px;
+    position: absolute;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    object-fit: cover;
+}
+
+.about-image-small:first-child {
+    width: 180px;
+    height: 180px;
+    left: 0;
+    bottom: 0;
+}
+
+.about-image-medium {
+    width: 200px;
+    height: 200px;
+    z-index: 2;
+}
+
+.about-image-small:last-child {
+    width: 180px;
+    height: 180px;
+    right: 0;
+    top: 0;
+}
+
+.about {
+    background-image: url("https://res.cloudinary.com/df36gkrw5/image/upload/v1749182940/QSauto_vrxoto.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 60vh;
+    display: flex;
+    justify-content: start;
+    color: white;
+    padding: 2rem;
+    border-radius: 30px;
+    margin-left: 50px;
+    margin-right: 50px;
+    font-family: Arial, sans-serif;
+}
+
+.about-us-grid {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin: auto;
+}
+.about-us-content {
+    padding: 2rem;
+}
+
+.about-us-item_origin-box {
+    border: 4px solid red;
+    border-radius: 10px;
+    width: 580px;
+    height: auto;
+    padding: 16px;
+    margin: auto;
+}
+
+.about-us-item_origin-box h3,
+p {
+    font-size: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.box {
+    border: 4px solid red;
+    border-radius: 10px;
+    width: 625px;
+    height: auto;
+    padding: 16px;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.box h3,
+li {
+    font-size: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* ===== RESPONSIVE STYLES ===== */
+
+@media (max-width: 1024px) {
+    .about {
+        margin: 20px;
+        height: 60vh;
+        padding: 1.5rem;
+    }
+
+    .about-us-grid {
+        margin-bottom: 50px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-us-item_origin-box {
+        width: 90%;
+        height: auto;
+        margin-bottom: 50px;
+    }
+
+    .box {
+        width: 90%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-us-images {
+        height: 300px;
+    }
+
+    .about-image-small:first-child,
+    .about-image-small:last-child {
+        width: 120px;
+        height: 120px;
+    }
+
+    .about-image-medium {
+        width: 150px;
+        height: 150px;
+    }
+
+    .about {
+        padding: 1rem;
+        margin: 15px;
+        border-radius: 20px;
+    }
+
+    .about-us-content {
+        padding: 1rem;
+    }
+
+    .about-us-item_origin-box h3,
+    .about-us-item_origin-box p,
+    .box h3,
+    .box li {
+        font-size: 16px;
+        margin-bottom: 50px;
+    }
+
+}
+
+@media (max-width: 480px) {
+    .about-us-images {
+        height: 250px;
+    }
+
+    .about-image-small:first-child,
+    .about-image-small:last-child {
+        width: 100px;
+        height: 100px;
+    }
+
+    .about-image-medium {
+        width: 130px;
+        height: 130px;
+    }
+
+    .about {
+        padding: 1rem;
+        margin: 10px;
+    }
+}
